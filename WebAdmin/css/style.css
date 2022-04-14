@@ -1,0 +1,444 @@
+.html {
+    height: 100%;
+}
+
+.body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #252525;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+    height: 50px;
+    padding-left: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.header__title {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: x-large;
+    font-weight: 800px;
+}
+
+.container {
+    height: 90vh;
+    margin: 0;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.container_grey {
+    background-color: #404040;
+}
+
+/* стили для панели инструментов */
+
+.tools {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tools__input {
+    width: 400px;
+    height: 30px;
+    border-radius: 6px;
+    border: 1px solid grey;
+}
+
+::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: grey;
+}
+
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: grey;
+}
+
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: grey;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: red;
+}
+
+.tools__holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.tools__input_black {
+    background-color: #303030;
+}
+/* Спец клас добавлен везде где текст белый */
+.text_white {
+    color: white;
+}
+
+.tools__text_indent-right {
+    margin-right: 15px;
+}
+
+.tools__text_twopoint {
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
+.tools__text_plus {
+    font-size: 30px;
+}
+
+.tools__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 38px;
+    margin-left: 10px;
+    border-radius: 6px;
+}
+
+.tools__button_orange {
+    background-color: #ff8c00;
+}
+
+/* Класс для кнопки перезагрузить */
+.reload {
+    margin-left: 30px;
+}
+
+/* Класс с размером кнопки */
+
+.button-close {
+    width: 40px;
+    height: 40px;
+}
+
+/* Стили для таблицы */
+
+#modalShow th {
+    border: 1px solid #696969;
+    position: relative;
+    text-align: center;
+}
+
+#modalShow tr,
+td {
+    border: 1px solid #696969;
+    position: relative;
+    text-align: center;
+}
+
+.main {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: auto;
+    border: 1px solid grey;
+}
+
+.main_black {
+    background-color: #303030;
+}
+.main__aktors {
+    overflow: hidden;
+    height: 150px;
+    overflow: auto;
+}
+
+.table {
+    width: 100%;
+    height: auto;
+
+    overflow: auto;
+}
+
+.table__aktors {
+    width: auto;
+    height: 150px;
+    overflow: auto;
+}
+
+/* Ячейки таблицы */
+
+.cell {
+    height: 20px;
+    width: 200px;
+    border: 1px solid grey;
+}
+
+.cell_min {
+    width: 60px;
+}
+
+.cell_big {
+    width: 320px;
+}
+
+.cell__color_black {
+    background-color: #303030;
+}
+.cell__text_orange {
+    color: #ff8c00;
+}
+
+.circle {
+    margin-left: auto;
+    margin-right: auto;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -khtml-border-radius: 50%;
+}
+/* Два класа для колонки Alive  */
+.green {
+    background-color: #00ff00;
+}
+
+.red {
+    background-color: red;
+}
+
+/* Стили для футера */
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    border-top: 1px solid grey;
+}
+
+.footer_grey {
+    background-color: #404040;
+}
+
+/* Стили для модальных окон */
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.5s ease-out;
+}
+
+.popup__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor:pointer;
+}
+
+.popup__refresh-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    font-size: xx-large;
+    cursor: pointer;
+}
+
+.popup__close_black {
+    background-color: #303030;
+    border: 1px solid grey;
+    font-size: 20px;
+}
+
+.popup__password-button-ok {
+    background-color: white;
+    height: 27px;
+    margin-left: 15px;
+}
+
+/* Спец класс открытия модального окна */
+.popup_open {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    z-index: 50;
+}
+
+.popup__refresh-input {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.popup__refresh {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    width: 500px;
+    height: 150px;
+    padding: 20px;
+    background-color: white;
+}
+
+.popup__refresh-title {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.popup__input {
+    width: 100%;
+    height: 21px;
+}
+
+.popup__password {
+    width: 392px;
+    height: 21px;
+}
+
+.popup__file {
+    width: 400px;
+    /* height: 35px; */
+    margin-top: 10px;
+    border: 1px solid grey;
+}
+
+.popup__pass {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Стили для формы */
+
+.form {
+    position: relative;
+    width: 800px;
+    height: auto;
+    padding: 20px;
+    border: 1px solid grey;
+}
+.form_black {
+    background-color: #303030;
+}
+.form__title {
+    margin: 0;
+    font-size: 17px;
+}
+
+.form__button {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.form__buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 63px;
+}
+
+.form__button-text {
+    margin: 0;
+}
+
+.form__button-text_indent {
+    margin-right: auto;
+}
+
+.form__row {
+    display: flex;
+    flex-direction: row;
+}
+
+.form__column {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form__container-one {
+    height: 200px;
+    padding-top: 16px;
+}
+
+.form__buttons-refresh {
+    width: 160px;
+    border-radius: 10px;
+    height: 50px;
+}
+
+.form__buttons-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.form__buttons-orange {
+    background-color: #ff8c00;
+}
+
+.aktors {
+    height: 30px;
+}
+
+.form__text {
+    margin: 0;
+}
+
+.message {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.message_grey {
+    background-color: #404040;
+}
+
+.message__text {
+    margin: 0;
+}
+
+.title {
+    margin: 0;
+    font-size: larger;
+}
+
+.icon {
+    width: auto;
+    height: auto;
+    margin: 0;
+    font-size: 35px;
+    vertical-align: middle;
+}
+/* Спец класс для отступа */
+.button-indent{margin-left: 15px;}

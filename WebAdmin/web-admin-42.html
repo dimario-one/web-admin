@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <title>S42 Web Admin</title>
+        <link href="./css/style.css" rel="stylesheet" />
+    </head>
+
+    <body class="body">
+        <header class="header">
+            <!-- <img> -->
+            <h2 class="header__title text text_white">S42 Web Admin</h2>
+        </header>
+        <section class="container container_grey">
+            <div class="tools">
+                <div class="tools__container">
+                    <select
+                        class="tools__input tools__input_black text text_white"
+                        type="text"
+                    >
+                        <option>Все</option>
+                        <option>Один</option>
+                        <option>Два</option>
+                        <option>Три</option>
+                        <option>Четыре</option>
+                    </select>
+                </div>
+                <div class="tools__holder">
+                    <p
+                        class="tools__text tools__text_indent-right text text_white"
+                    >
+                        Добавление модуля:
+                    </p>
+                    <input
+                        class="tools__input tools__input_black tools__text text text_white"
+                        type="text"
+                        placeholder="Введите IP адрес"
+                    />
+                    <p class="tools__text tools__text_twopoint text text_white">
+                        :
+                    </p>
+                    <input
+                        class="tools__input tools__input_black tools__text text text_white"
+                        type="text"
+                        placeholder="Введите имя модуля"
+                    />
+                    <button
+                        type="button"
+                        class="tools__button tools__button_orange"
+                        id="btn-add-plus"
+                    >
+                        <p class="tools__text tools__text_plus">&#43;</p>
+                    </button>
+                </div>
+            </div>
+            <div class="main main_black">
+                <table class="table" id="table">
+                    <thead class=" ">
+                        <tr class="">
+                            <th class="cell cell_min">
+                                <p class="text text_white">№</p>
+                            </th>
+                            <th class="cell">
+                                <p class="text text_white">Имя Модуля</p>
+                            </th>
+                            <th class="cell cell_min">
+                                <p class="text text_white"></p>
+                            </th>
+                            <th class="cell">
+                                <p class="text text_white">Загрузка,%</p>
+                            </th>
+                            <th class="cell">
+                                <p class="text text_white">IP</p>
+                            </th>
+                            <th class="cell cell_big">
+                                <p class="text text_white">Путь на диске</p>
+                            </th>
+                            <th class="cell">
+                                <p class="text text_white">Время запуска</p>
+                            </th>
+                            <th class="cell cell_big">
+                                <p class="text text_white">
+                                    Время последней активности
+                                </p>
+                            </th>
+                            <th class="cell cell_min">
+                                <p class="text text_white"></p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+        <footer class="footer footer_grey"></footer>
+
+        <!-- Модальное окно при клике на ячейку -->
+
+        <div class="popup" id="modalShow">
+            <form class="form form_black">
+                <div class="form__header">
+                    <div class="form__holder">
+                        <h5
+                            class="form__title text text_white"
+                            id="moduleTitle"
+                        ></h5>
+                    </div>
+         
+                        <button
+                            type="button"
+                            class="button-close popup__close popup__close_black text text_white "
+                            data-dismiss="modal"
+                            aria-label="Close"
+                            id="btn-close-popup"
+                        >
+                            X
+                        </button>
+              
+                </div>
+                <div class="form__holder">
+                    <div class="form__container-one">
+                        <div class="form__column">
+                            <div class="form__row">
+                                <p class="form__text text text_white">
+                                    Статус :
+                                </p>
+                                <p
+                                    class="form__text text text_white"
+                                    id="status"
+                                ></p>
+                            </div>
+                            <div class="form__row">
+                                <p class="form__text text text_white">
+                                    Время запуска :
+                                </p>
+                                <p
+                                    class="form__text text text_white"
+                                    id="time-start"
+                                ></p>
+                            </div>
+                            <div class="form__row">
+                                <p class="form__text text text_white">
+                                    Время работы :
+                                </p>
+                                <p
+                                    class="form__text text text_white"
+                                    id="time-work"
+                                ></p>
+                            </div>
+                            <div class="form__row">
+                                <p class="form__text text text_white">
+                                    Командная строка :
+                                </p>
+                                <p
+                                    class="form__text text text_white"
+                                    id="commandString"
+                                ></p>
+                            </div>
+                        </div>
+
+                        <div class="form__buttons form__row">
+                            <button
+                                type="button"
+                                class="form__buttons-refresh form__buttons-row form__buttons-orange"
+                                id="refresh"
+                            >
+                                <p class="icon">&#x2699;&#xFE0F;</p>
+                                <div class="form__button form__column">
+                                    <p
+                                        class="form__button-text form__button-text_indent"
+                                    >
+                                        Обновить
+                                    </p>
+                                    <p class="form__button-text">
+                                        конфигурацию
+                                    </p>
+                                </div>
+                            </button>
+                            <button
+                                type="button"
+                                class="form__buttons-refresh form__buttons-row form__buttons-orange reload"
+                                id="reload"
+                            >
+                                <p class="icon">⭯</p>
+                                <p class="button-indent">Перезагрузить</p>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form__container-two">
+                        <div class="aktors">
+                            <p class="aktors__text text text_white">Акторы</p>
+                        </div>
+                        <div class="main main__aktors">
+                            <table class="table" id="modalAktor">
+                                <!-- Название колонок -->
+                                <thead>
+                                    <tr>
+                                        <th class="text text_white">№</th>
+                                        <th class="text text_white">Тип</th>
+                                        <th class="text text_white">Имя</th>
+                                        <th class="text text_white">Всего</th>
+                                        <th class="text text_white">Активно</th>
+                                    </tr>
+                                </thead>
+                                <tbody
+                                    class="table__aktors"
+                                    id="table-aktors"
+                                    style="height: 200px"
+                                ></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="message message_grey" id="form-container">
+                    <p class="message__text text text_white">
+                        12:57:23.741 [INF] Loading coonfiguration...
+                    </p>
+                    <p class="message__text text text_white">
+                        12:57:25.231 [INF] Setting up module...
+                    </p>
+                    <p class="message__text text text_white">
+                        12:57:25.326 [INF] Create actor interface...
+                    </p>
+                    <p class="message__text text text_white">
+                        12:57:25.346 [INF] Inserters.dll/Inserters gasInserter x
+                        4-created
+                    </p>
+                    <p class="message__text text text_white">
+                        12:57:25.346 [INF] Create actor interface...
+                    </p>
+                    <p class="message__text text text_white">
+                        12:57:25.346 [INF] Inserters.dll/Inserters gasInserter x
+                        4-created
+                    </p>
+                    <p class="message__text text text_white">
+                        12:57:25.348 [INF] Loading module proogram...
+                    </p>
+                    <p class="message__text text text_white">
+                        12:57:25.349 [INF] Module 'MeterBirth' started
+                    </p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Модальное окно при нажатии кнопки обновить-->
+
+        <div class="popup" id="refresh-show">
+            <div class="popup__refresh">
+                <button
+                    type="button"
+                    class="button popup__refresh-close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    id="close-btn-refresh"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="popup-title">
+                    <h5 class="title text text_black">Обновить конфигурацию</h5>
+                </div>
+                <div class="popup__file">
+                    <input
+                        type="file"
+                        class="popup__input"
+                        id="inputGroupFile01"
+                    />
+                </div>
+                <div class="popup__pass">
+                    <input
+                        type="text"
+                        class="popup__password"
+                        placeholder="Пароль"
+                        aria-label="Password"
+                        aria-describedby="basic-addon2"
+                    />
+                    <button
+                        class="button popup__password-button-ok text text_black"
+                        type="button"
+                    >
+                        OK
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно при нажатии кнопки перезагрузить-->
+        <div class="popup" tabindex="-1" role="dialog" id="reload-show">
+            <div class="popup__refresh">
+                <button
+                    type="button"
+                    class="button popup__refresh-close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    id="close-btn-reload"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="popup__refresh-title">
+                    <h5 class="title text text_black">Введите пароль</h5>
+                </div>
+                <div class="popup__refresh-input">
+                    <input
+                        type="text "
+                        class="popup__password"
+                        placeholder="Пароль "
+                        aria-label="Password "
+                        aria-describedby="basic-addon2 "
+                    />
+                    <div class="popup__button-ok">
+                        <button
+                            class="button popup__password-button-ok text text_black"
+                            type="button "
+                        >
+                            OK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./js/webadmin42.js "></script>
+    </body>
+</html>
